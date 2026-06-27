@@ -45,8 +45,9 @@
   header{
     position:fixed; top:0; left:0; right:0; z-index:100;
     display:flex; align-items:center; justify-content:space-between;
-    padding:26px 7vw;
+    padding:26px 5vw;
     background:linear-gradient(180deg, rgba(7,7,8,0.92), transparent);
+    max-width:100vw; overflow:hidden;
   }
   .logo{font-family:'Patrician',serif; font-weight:700; font-size:1.3rem;}
   .logo .dot{color:var(--pink);}
@@ -218,7 +219,8 @@
     .stats{grid-template-columns:repeat(3,1fr); gap:16px;}
     .stats div b{font-size:1.6rem;}
     .service-grid{grid-template-columns:1fr; gap:0;}
-    .service-card{min-height:320px; padding:24px 20px; background-size:cover; background-position:center top;}
+    .service-card{min-height:380px; padding:24px 20px; background-size:cover; background-position:center center;}
+.service-card::before{background-size:cover; background-position:center center;}
     .grid-frames{grid-template-columns:repeat(2,1fr); gap:8px;}
     .exp-row{grid-template-columns:1fr; gap:6px; padding:20px 0;}
     .exp-row h3{font-size:1rem;}
