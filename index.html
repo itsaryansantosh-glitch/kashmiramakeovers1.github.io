@@ -66,14 +66,14 @@
     font-size:0.72rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--pink);
     margin-bottom:24px; display:block;
   }
-  .hero h1{font-size:clamp(3rem,7vw,5.6rem); line-height:0.98; letter-spacing:-0.01em;}
+  .hero h1{font-size:clamp(2rem,4.5vw,3.6rem); line-height:1.05; letter-spacing:-0.01em;}
   .hero h1 .grad{
     background:linear-gradient(100deg, #ffc6e0, var(--pink) 80%);
     -webkit-background-clip:text; background-clip:text; color:transparent;
   }
   .hero-copy .sub-tag{
     font-family:'Patrician',serif; font-style:italic; font-size:1.3rem; color:var(--pink);
-    margin-top:14px;
+    margin-top:14px; display:block; letter-spacing:0.02em;
   }
   .hero-copy p{font-size:1.04rem; line-height:1.75; color:var(--mute); max-width:42ch; margin:28px 0 36px;}
   .btn-row{display:flex; gap:16px; flex-wrap:wrap;}
@@ -108,7 +108,7 @@
 
   /* ===== ABOUT ===== */
   .about-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:70px; align-items:start;}
-  .about-frame{aspect-ratio:4/5; border:1px solid var(--line); border-radius:6px; position:relative; background:linear-gradient(160deg, rgba(255,95,162,0.1), transparent);}
+  .about-frame{aspect-ratio:4/5; border:1px solid var(--line); border-radius:6px; position:relative; background:url('images/hero-portrait.jpg') center/cover no-repeat;}
   .about-frame .tab{position:absolute; bottom:16px; left:16px; font-size:0.66rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--mute);}
   .about-copy p{font-size:1.06rem; line-height:1.85; color:var(--mute); max-width:48ch;}
   .about-copy p + p{margin-top:18px;}
@@ -142,8 +142,10 @@
   /* ===== TRUSTED / GIANT TEXT ===== */
   .giant{position:relative; padding:90px 0 0; overflow:hidden;}
   .giant h2{
-    font-size:clamp(4rem, 13vw, 11rem); line-height:0.85; color:transparent;
-    -webkit-text-stroke:1px rgba(255,255,255,0.16); text-align:center; white-space:nowrap;
+    font-size:clamp(4rem, 13vw, 11rem); line-height:0.85;
+    background:linear-gradient(100deg, #ffffff, #ff5fa2);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    -webkit-text-stroke:0px; text-align:center; white-space:nowrap;
   }
   .marquee-track{display:flex; width:max-content; animation:scroll 26s linear infinite; margin-top:50px;}
   .marquee-track:hover{animation-play-state:paused;}
@@ -215,7 +217,7 @@
 <div class="glow glow-2"></div>
 
 <header>
-  <a class="logo" href="#top">Kashmira<span class="dot">.</span> Makeovers</a>
+  
   <nav>
     <ul>
       <li><a href="#about">About</a></li>
@@ -254,7 +256,7 @@
     <span class="eyebrow">About Kashmira</span>
     <div class="about-grid">
       <div class="about-frame reveal">
-        <div class="tab">Add Photo — images/hero-portrait.jpg</div>
+        
       </div>
       <div class="about-copy reveal">
         <h2 style="margin-bottom:26px; font-size:clamp(1.8rem,3.4vw,2.6rem);">Precision, creativity &amp; elegance, in every look.</h2>
@@ -273,7 +275,7 @@
 <section id="services">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">What She Does</span>
+      >
       <h2>Services</h2>
     </div>
     <div class="service-grid reveal">
@@ -347,15 +349,15 @@
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Reserve Your Date</span>
-      <h2>Book a Slot</h2>
+      <h2>Book A Slot</h2>
     </div>
     <div class="booking-card reveal">
       <div class="booking-grid">
         <div class="booking-copy">
           <p>Tell Kashmira a little about your event and preferred date, and she'll get back to you to confirm availability.</p>
-          <div class="contact-line"><span>&#9742;</span><span>+91 00000 00000</span></div>
+          <div class="contact-line"><span>&#9742;</span><span>+91 77199 35959</span></div>
           <div class="contact-line"><span>&#9993;</span><span>hello@kashmiramakeup.com</span></div>
-          <div class="contact-line"><span>&#128205;</span><span>Mumbai, India</span></div>
+          <div class="contact-line"><span>Bangalore, India</span></div>
         </div>
         <form id="bookingForm">
           <div class="f-row">
