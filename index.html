@@ -36,7 +36,7 @@
   .wrap{max-width:1280px; margin:0 auto; padding:0 5vw; position:relative; z-index:2; overflow:hidden;}
 
   /* ambient pink gradient glows */
-  .glow{position:absolute; border-radius:50%; filter:blur(90px); z-index:0; pointer-events:none; opacity:0.55;}
+  .glow{position:fixed; border-radius:50%; filter:blur(90px); z-index:0; pointer-events:none; opacity:0.55;}
   .glow-1{width:520px; height:520px; background:radial-gradient(circle, var(--pink), transparent 70%); top:-160px; right:-120px;}
   .glow-2{width:460px; height:460px; background:radial-gradient(circle, var(--pink-deep), transparent 70%); top:40%; left:-180px;}
   .glow-3{width:420px; height:420px; background:radial-gradient(circle, var(--pink), transparent 70%); bottom:-140px; right:10%;}
@@ -62,7 +62,7 @@
   .menu-btn{display:none; background:none; border:none; color:var(--white); font-size:1.5rem; cursor:pointer;}
 
   /* ===== HERO ===== */
-  .hero{min-height:100vh; display:flex; align-items:center; position:relative; padding-top:80px;}
+  .hero{min-height:100vh; display:flex; align-items:center; position:relative; padding-top:80px; overflow:hidden;}
   .hero-grid{display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; width:100%;}
   .hero-copy .tag{
     font-size:0.72rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--pink);
