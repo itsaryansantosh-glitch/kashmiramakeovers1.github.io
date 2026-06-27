@@ -119,10 +119,21 @@
   /* ===== SERVICES ===== */
   .service-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
   .service-card{
-    background:var(--bg); padding:40px 28px; min-height:280px; display:flex; flex-direction:column; justify-content:space-between;
-    transition:background .35s ease;
+    padding:40px 28px; min-height:280px; display:flex; flex-direction:column; justify-content:space-between;
+    position:relative; overflow:hidden; transition:background .35s ease;
+    background-size:cover; background-position:center;
   }
-  .service-card:hover{background:linear-gradient(160deg, rgba(255,95,162,0.12), transparent);}
+  .service-card::before{
+    content:''; position:absolute; inset:0;
+    background:inherit; background-size:cover; background-position:center;
+    filter:grayscale(100%); transition:filter .5s ease; z-index:0;
+  }
+  .service-card:hover::before{ filter:grayscale(0%); }
+  .service-card::after{
+    content:''; position:absolute; inset:0;
+    background:rgba(7,7,8,0.6); z-index:1; pointer-events:none;
+  }
+  .service-card .n, .service-card h3, .service-card p{ position:relative; z-index:2; }
   .service-card .n{font-family:'Patrician',serif; color:var(--pink); font-size:1rem;}
   .service-card h3{font-size:1.5rem; margin-top:auto;}
   .service-card p{font-size:0.86rem; color:var(--mute); margin-top:12px; line-height:1.6;}
@@ -275,25 +286,29 @@
 <section id="services">
   <div class="wrap">
     <div class="section-head">
+
       <h2>Services</h2>
     </div>
     <div class="service-grid reveal">
-      <div class="service-card">
-        <span class="n">01</span>
-        <div><h3>Bridal</h3><p>Traditional &amp; contemporary bridal looks, built to last the day.</p></div>
-      </div>
-      <div class="service-card">
-        <span class="n">02</span>
-        <div><h3>Portrait Makeover</h3><p>Soft, camera-ready transformations for personal shoots.</p></div>
-      </div>
-      <div class="service-card">
-        <span class="n">03</span>
-        <div><h3>Fashion</h3><p>Runway and campaign-ready artistry with editorial precision.</p></div>
-      </div>
-      <div class="service-card">
-        <span class="n">04</span>
-        <div><h3>Editorial</h3><p>Bold, concept-driven looks for shoots and publications.</p></div>
-      </div>
+      <div class="service-card" style="background-image:url('images/service-bridal.png')">
+  <span class="n">01</span>
+  <div><h3>Bridal</h3><p>Traditional & contemporary bridal looks, built to last the day.</p></div>
+</div>
+
+<div class="service-card" style="background-image:url('images/service-portrait.png')">
+  <span class="n">02</span>
+  <div><h3>Portrait Makeover</h3><p>Soft, camera-ready transformations for personal shoots.</p></div>
+</div>
+
+<div class="service-card" style="background-image:url('images/service-fashion.png')">
+  <span class="n">03</span>
+  <div><h3>Fashion</h3><p>Runway and campaign-ready artistry with editorial precision.</p></div>
+</div>
+
+<div class="service-card" style="background-image:url('images/service-editorial.png')">
+  <span class="n">04</span>
+  <div><h3>Editorial</h3><p>Bold, concept-driven looks for shoots and publications.</p></div>
+</div>
     </div>
   </div>
 </section>
