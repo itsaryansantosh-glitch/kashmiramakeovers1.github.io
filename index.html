@@ -386,7 +386,7 @@
           <div class="contact-line"><span>&#9993;</span><span>hello@kashmiramakeup.com</span></div>
           <div class="contact-line"><span>Bangalore, India</span></div>
         </div>
-        <form id="bookingForm">
+        <form id="bookingForm" action="https://formspree.io/f/mbdvyjdn" method="POST">
           <div class="f-row">
             <div class="field">
               <label for="name">Name</label>
@@ -468,15 +468,7 @@
   }, { threshold: 0.15 });
   revealEls.forEach(el => io.observe(el));
 
-  document.getElementById('bookingForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    const f = e.target;
-    const subject = encodeURIComponent('Booking Request — ' + f.service.value);
-    const body = encodeURIComponent(
-      `Name: ${f.name.value}\nPhone: ${f.phone.value}\nEmail: ${f.email.value}\nService: ${f.service.value}\nPreferred Date: ${f.date.value}\nCity/Venue: ${f.city.value}\nMessage: ${f.message.value}`
-    );
-    window.location.href = `mailto:hello@kashmiramakeup.com?subject=${subject}&body=${body}`;
-  });
+  
 </script>
 
 </body>
