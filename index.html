@@ -203,35 +203,22 @@
   }
   footer a:hover{color:var(--pink);}
 
-  @media (max-width:980px){
-    nav ul, .nav-cta{display:none;}
-    .menu-btn{display:block;}
-    .hero-grid, .about-grid, .booking-grid, .exp-row{grid-template-columns:1fr; gap:34px;}
-    .hero-frames{height:340px; margin-top:30px;}
-    .service-grid{grid-template-columns:repeat(2,1fr);}
-    .grid-frames{grid-template-columns:repeat(2,1fr);}
-    .f-row{grid-template-columns:1fr;}
-    .booking-card{padding:46px 28px;}
-    .giant h2{font-size:10vw; white-space:normal; word-break:break-word; text-align:center;}
-    .marquee-track .grp span{font-size:1.2rem; padding:0 24px;}
-    .service-card{min-height:200px;}
-  }
-
-@media (max-width:600px){
-    .wrap{padding:0 6%;}
-    section{padding:90px 0;}
-    .service-grid{grid-template-columns:1fr;}
-    .grid-frames{grid-template-columns:repeat(2,1fr);}
-    .giant h2{font-size:12vw;}
-    .marquee-track .grp span{font-size:1rem; padding:0 16px;}
-    .stats{grid-template-columns:repeat(3,auto); gap:20px;}
-  }
   @media (max-width:600px){
     .wrap{padding:0 6%;}
     section{padding:90px 0;}
-    .service-grid, .grid-frames{grid-template-columns:1fr;}
-    .giant h2{font-size:14vw;}
+    .service-grid{grid-template-columns:1fr;}
+    .service-card{min-height:260px; padding:24px 20px;}
+    .grid-frames{grid-template-columns:repeat(2,1fr);}
+    .giant h2{font-size:12vw; white-space:normal; word-break:break-word;}
+    .marquee-track .grp span{font-size:1rem; padding:0 16px;}
+    .stats{grid-template-columns:repeat(3,auto); gap:20px;}
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-frames{display:none;}
+    .booking-card{padding:30px 18px;}
+    .exp-row{grid-template-columns:1fr; gap:8px;}
   }
+
+
   @media (prefers-reduced-motion: reduce){ *{animation:none !important; transition:none !important;} }
 </style>
 </head>
@@ -468,7 +455,15 @@
   }, { threshold: 0.15 });
   revealEls.forEach(el => io.observe(el));
 
-  
+  document.getElementById('bookingForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const f = e.target;
+    const subject = encodeURIComponent('Booking Request — ' + f.service.value);
+    const body = encodeURIComponent(
+      `Name: ${f.name.value}\nPhone: ${f.phone.value}\nEmail: ${f.email.value}\nService: ${f.service.value}\nPreferred Date: ${f.date.value}\nCity/Venue: ${f.city.value}\nMessage: ${f.message.value}`
+    );
+    window.location.href = `mailto:hello@kashmiramakeup.com?subject=${subject}&body=${body}`;
+  });
 </script>
 
 </body>
