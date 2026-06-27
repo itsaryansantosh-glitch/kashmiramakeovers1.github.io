@@ -141,9 +141,8 @@
 
   /* ===== PORTFOLIO ===== */
   .grid-frames{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
-  .pframe{aspect-ratio:3/4; border:1px solid var(--line); border-radius:4px; background:linear-gradient(160deg, rgba(255,95,162,0.08), transparent); display:flex; align-items:flex-end; padding:14px;}
-  .pframe span{font-size:0.6rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--mute);}
-  .pframe:nth-child(3n+2){aspect-ratio:3/5;}
+  .pframe{aspect-ratio:3/4; border:1px solid var(--line); border-radius:4px; background-size:cover; background-position:center;}
+  
 
   /* ===== EXPERIENCE ===== */
   .exp-list{display:grid; gap:0; border-top:1px solid var(--line);}
@@ -321,15 +320,15 @@
       <h2>Portfolio</h2>
     </div>
     <div class="grid-frames reveal">
-      <div class="pframe"><span>images/portfolio-1.jpg</span></div>
-      <div class="pframe"><span>images/portfolio-2.jpg</span></div>
-      <div class="pframe"><span>images/portfolio-3.jpg</span></div>
-      <div class="pframe"><span>images/portfolio-4.jpg</span></div>
-      <div class="pframe"><span>images/portfolio-5.jpg</span></div>
-      <div class="pframe"><span>images/portfolio-6.jpg</span></div>
-      <div class="pframe"><span>images/portfolio-7.jpg</span></div>
-      <div class="pframe"><span>images/portfolio-8.jpg</span></div>
-    </div>
+  <div class="pframe" style="background-image:url('images/portfolio-1.png')"></div>
+  <div class="pframe" style="background-image:url('images/portfolio-2.png')"></div>
+  <div class="pframe" style="background-image:url('images/portfolio-3.png')"></div>
+  <div class="pframe" style="background-image:url('images/portfolio-4.png')"></div>
+  <div class="pframe" style="background-image:url('images/portfolio-5.png')"></div>
+  <div class="pframe" style="background-image:url('images/portfolio-6.png')"></div>
+  <div class="pframe" style="background-image:url('images/portfolio-7.png')"></div>
+  <div class="pframe" style="background-image:url('images/portfolio-8.png')"></div>
+</div>
   </div>
 </section>
 
