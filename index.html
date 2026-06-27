@@ -61,16 +61,19 @@
 
   /* ===== HERO ===== */
   .hero{min-height:100vh; display:flex; align-items:center; position:relative; padding-top:80px;}
-  .hero-grid{display:grid; grid-template-columns:1.3fr 0.7fr; gap:40px; align-items:center; width:100%;}
+  .hero-grid{display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; width:100%;}
   .hero-copy .tag{
     font-size:0.72rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--pink);
     margin-bottom:24px; display:block;
   }
-  .hero h1{font-size:clamp(2.6rem,6vw,4.8rem); line-height:0.98; letter-spacing:-0.01em; overflow-wrap:break-word;}
+  .hero h1{font-size:clamp(3rem,7vw,5.6rem); line-height:0.98; letter-spacing:-0.01em;}
   .hero h1 .grad{
-    background:linear-gradient(100deg, var(--white), var(--pink) 70%);
+    background:linear-gradient(100deg, #ffc6e0, var(--pink) 80%);
     -webkit-background-clip:text; background-clip:text; color:transparent;
-    font-style:italic;
+  }
+  .hero-copy .sub-tag{
+    font-family:'Patrician',serif; font-style:italic; font-size:1.3rem; color:var(--pink);
+    margin-top:14px;
   }
   .hero-copy p{font-size:1.04rem; line-height:1.75; color:var(--mute); max-width:42ch; margin:28px 0 36px;}
   .btn-row{display:flex; gap:16px; flex-wrap:wrap;}
@@ -230,7 +233,8 @@
     <div class="hero-grid">
       <div class="hero-copy">
         <span class="tag">Makeup Artistry</span>
-        <h1>Kashmira<br>Makeovers<br><span class="grad">Bridal &amp; Editorial</span></h1>
+        <h1 style="text-transform:uppercase;">Kashmira <span class="grad">Makeovers</span></h1>
+        <p class="sub-tag">Bridal &amp; Editorial Artistry</p>
         <p>A refined eye for detail across bridal, fashion, editorial and portrait makeovers — trusted by global beauty houses and 150+ brides.</p>
         <div class="btn-row">
           <a href="#booking" class="btn btn-pink">Book a Slot</a>
@@ -269,7 +273,7 @@
 <section id="services">
   <div class="wrap">
     <div class="section-head">
-      
+      <span class="eyebrow">What She Does</span>
       <h2>Services</h2>
     </div>
     <div class="service-grid reveal">
