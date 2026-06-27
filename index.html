@@ -3,261 +3,216 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kashmira | Makeup Artist</title>
+<title>Kashmira Makeovers</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,900;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  @font-face {
-  font-family: 'Patrician';
-  src: url('fonts/Patrician.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
+  @font-face{
+    font-family:'Patrician';
+    src:url('fonts/Patrician.ttf') format('truetype');
+    font-weight:normal; font-style:normal;
+  }
+
   :root{
-    --ink:#0c0a0d;
-    --ink-2:#15111a;
-    --bone:#f3ecdf;
-    --gold:#cda35a;
-    --gold-soft:#e7c98c;
-    --wine:#7a1f2b;
-    --teal:#1c5350;
-    --magenta:#9c2459;
-    --line: rgba(231,201,140,0.22);
+    --bg:#070708;
+    --white:#ffffff;
+    --pink:#ff5fa2;
+    --pink-deep:#c23b8a;
+    --mute:#9b96a0;
+    --line: rgba(255,255,255,0.1);
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
-    background:var(--ink);
-    color:var(--bone);
-    font-family:'Jost', sans-serif;
-    font-weight:300;
+    background:var(--bg); color:var(--white);
+    font-family:'Jost', sans-serif; font-weight:300;
     overflow-x:hidden;
   }
-  ::selection{background:var(--gold);color:var(--ink);}
+  h1,h2,h3{font-family:'Patrician', serif; font-weight:700; color:var(--white); text-wrap:balance;}
+  a{color:inherit; text-decoration:none;}
+  ::selection{background:var(--pink); color:#fff;}
 
-  h1,h2,h3,.display{
-    font-family:'Patrician', serif;
-    font-weight:700;
-    letter-spacing:0.01em;
-  }
+  .wrap{max-width:1280px; margin:0 auto; padding:0 7vw; position:relative; z-index:2;}
 
-  .eyebrow{
-    font-family:'Jost',sans-serif;
-    text-transform:uppercase;
-    letter-spacing:0.32em;
-    font-size:0.72rem;
-    color:var(--gold-soft);
-    font-weight:500;
-  }
-
-  a{color:inherit;text-decoration:none;}
+  /* ambient pink gradient glows */
+  .glow{position:absolute; border-radius:50%; filter:blur(90px); z-index:0; pointer-events:none; opacity:0.55;}
+  .glow-1{width:520px; height:520px; background:radial-gradient(circle, var(--pink), transparent 70%); top:-160px; right:-120px;}
+  .glow-2{width:460px; height:460px; background:radial-gradient(circle, var(--pink-deep), transparent 70%); top:40%; left:-180px;}
+  .glow-3{width:420px; height:420px; background:radial-gradient(circle, var(--pink), transparent 70%); bottom:-140px; right:10%;}
 
   /* ===== NAV ===== */
   header{
     position:fixed; top:0; left:0; right:0; z-index:100;
     display:flex; align-items:center; justify-content:space-between;
-    padding:22px 6%;
-    background:linear-gradient(180deg, rgba(12,10,13,0.92), rgba(12,10,13,0));
-    transition:background 0.4s;
+    padding:26px 7vw;
+    background:linear-gradient(180deg, rgba(7,7,8,0.92), transparent);
   }
-  .logo{
-    font-family:'Patrician',serif; font-weight:900; font-size:1.4rem;
-    letter-spacing:0.04em; color:var(--bone);
-  }
-  .logo span{color:var(--gold);}
-  nav ul{display:flex; gap:34px; list-style:none;}
-  nav a{font-size:0.82rem; text-transform:uppercase; letter-spacing:0.14em; color:var(--bone); opacity:0.85; transition:opacity .25s, color .25s;}
-  nav a:hover{opacity:1; color:var(--gold-soft);}
+  .logo{font-family:'Patrician',serif; font-weight:700; font-size:1.3rem;}
+  .logo .dot{color:var(--pink);}
+  nav ul{display:flex; gap:38px; list-style:none;}
+  nav a{font-size:0.74rem; text-transform:uppercase; letter-spacing:0.18em; opacity:0.8; transition:opacity .25s, color .25s;}
+  nav a:hover{opacity:1; color:var(--pink);}
   .nav-cta{
-    border:1px solid var(--gold); padding:9px 20px; border-radius:2px;
-    font-size:0.78rem; letter-spacing:0.14em; text-transform:uppercase;
+    font-size:0.72rem; text-transform:uppercase; letter-spacing:0.14em;
+    background:var(--white); color:var(--bg); padding:11px 22px; border-radius:2px;
   }
-  .nav-cta:hover{background:var(--gold); color:var(--ink);}
-  .menu-btn{display:none; font-size:1.6rem; cursor:pointer; color:var(--bone); background:none; border:none;}
+  .nav-cta:hover{background:var(--pink); color:#fff;}
+  .menu-btn{display:none; background:none; border:none; color:var(--white); font-size:1.5rem; cursor:pointer;}
 
   /* ===== HERO ===== */
-  .hero{
-    position:relative; min-height:100vh; display:flex; align-items:center;
-    padding:0 6%;
+  .hero{min-height:100vh; display:flex; align-items:center; position:relative; padding-top:80px;}
+  .hero-grid{display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; width:100%;}
+  .hero-copy .tag{
+    font-size:0.72rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--pink);
+    margin-bottom:24px; display:block;
   }
-  .hero-bg{
-    position:absolute; inset:0; z-index:0;
-    background:linear-gradient(135deg, #1a0f14, #0c0a0d 60%);
+  .hero h1{font-size:clamp(3rem,7vw,5.6rem); line-height:0.98; letter-spacing:-0.01em;}
+  .hero h1 .grad{
+    background:linear-gradient(100deg, var(--white), var(--pink) 70%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    font-style:italic;
   }
-  .hero-bg img{
-    position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 18%;
-  }
-  .hero-bg::after{
-    content:''; position:absolute; inset:0;
-    background:linear-gradient(100deg, rgba(12,10,13,0.97) 28%, rgba(12,10,13,0.62) 55%, rgba(12,10,13,0.18) 80%),
-               linear-gradient(0deg, rgba(12,10,13,0.85), rgba(12,10,13,0.1) 40%);
-  }
-  .hero-content{position:relative; z-index:2; max-width:620px; animation:rise 1.1s ease both;}
-  .hero .eyebrow{display:flex; align-items:center; gap:14px; margin-bottom:22px;}
-  .hero .eyebrow::before{content:''; width:46px; height:1px; background:var(--gold);}
-  .hero h1{
-    font-size:clamp(3rem, 7vw, 5.4rem); line-height:0.98; color:var(--bone);
-    margin-bottom:24px;
-  }
-  .hero h1 em{font-style:italic; color:var(--gold-soft); font-weight:500;}
-  .hero p{
-    font-size:1.08rem; line-height:1.75; max-width:480px; color:#e3d9c9; opacity:0.9;
-    margin-bottom:36px;
-  }
-  .btn-row{display:flex; gap:18px; flex-wrap:wrap;}
+  .hero-copy p{font-size:1.04rem; line-height:1.75; color:var(--mute); max-width:42ch; margin:28px 0 36px;}
+  .btn-row{display:flex; gap:16px; flex-wrap:wrap;}
   .btn{
-    display:inline-flex; align-items:center; gap:10px;
-    padding:15px 30px; font-size:0.82rem; letter-spacing:0.16em; text-transform:uppercase;
-    border-radius:2px; transition:all .3s ease;
+    font-size:0.74rem; text-transform:uppercase; letter-spacing:0.14em;
+    padding:16px 30px; border-radius:2px; transition:all .3s ease; display:inline-flex; align-items:center;
   }
-  .btn-primary{background:var(--gold); color:var(--ink); border:1px solid var(--gold);}
-  .btn-primary:hover{background:transparent; color:var(--gold-soft);}
-  .btn-ghost{border:1px solid rgba(243,236,223,0.4);}
-  .btn-ghost:hover{border-color:var(--gold-soft); color:var(--gold-soft);}
+  .btn-pink{background:var(--pink); color:#fff;}
+  .btn-pink:hover{background:var(--white); color:var(--bg);}
+  .btn-ghost{border:1px solid var(--line); color:var(--white);}
+  .btn-ghost:hover{border-color:var(--pink); color:var(--pink);}
 
-  @keyframes rise{from{opacity:0; transform:translateY(26px);} to{opacity:1; transform:translateY(0);}}
-
-  .scroll-cue{
-    position:absolute; bottom:36px; left:6%; z-index:2;
-    font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; opacity:0.6;
-    display:flex; align-items:center; gap:10px;
+  .hero-frames{position:relative; height:520px;}
+  .frame{
+    position:absolute; border:1px solid var(--line); background:linear-gradient(160deg, rgba(255,95,162,0.08), rgba(255,255,255,0.02));
+    display:flex; align-items:flex-end; padding:16px; border-radius:4px;
   }
-  .scroll-cue::after{content:''; width:1px; height:30px; background:var(--gold-soft); animation:drip 2s infinite;}
-  @keyframes drip{0%{transform:scaleY(0); transform-origin:top;} 50%{transform:scaleY(1); transform-origin:top;} 51%{transform-origin:bottom;} 100%{transform:scaleY(0); transform-origin:bottom;}}
+  .frame span{font-size:0.62rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--mute);}
+  .frame-a{width:62%; height:60%; top:0; left:0;}
+  .frame-b{width:48%; height:54%; bottom:0; right:0;}
 
   /* ===== SECTION shell ===== */
-  section{padding:120px 6%; position:relative;}
-  .section-head{max-width:680px; margin-bottom:64px;}
-  .section-head .eyebrow{margin-bottom:16px; display:block;}
-  .section-head h2{font-size:clamp(2.2rem,4vw,3.2rem); color:var(--bone);}
-  .rule{width:64px; height:2px; background:linear-gradient(90deg,var(--gold),transparent); margin-top:22px;}
+  section{padding:130px 0; position:relative;}
+  .eyebrow{font-size:0.74rem; letter-spacing:0.28em; text-transform:uppercase; color:var(--pink); margin-bottom:18px; display:block;}
+  .section-head{max-width:720px; margin-bottom:60px;}
+  .section-head h2{font-size:clamp(2.1rem,4.2vw,3.2rem);}
+  .section-head p{color:var(--mute); font-size:1.02rem; line-height:1.7; margin-top:18px; max-width:60ch;}
+  .section-head.center{margin-left:auto; margin-right:auto; text-align:center;}
 
-  .reveal{opacity:0; transform:translateY(36px); transition:opacity .8s ease, transform .8s ease;}
-  .reveal.in{opacity:1; transform:translateY(0);}
+  .reveal{opacity:0; transform:translateY(26px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:none;}
 
   /* ===== ABOUT ===== */
-  .about{background:var(--ink-2);}
-  .about-grid{display:grid; grid-template-columns:0.85fr 1.15fr; gap:70px; align-items:center;}
-  .about-portrait{position:relative; aspect-ratio:4/5; background:linear-gradient(160deg,#241a1f,#0c0a0d); border:1px solid var(--line); display:flex; align-items:center; justify-content:center;}
-  .about-portrait img{width:100%; height:100%; display:block; object-fit:cover; filter:grayscale(0.15) contrast(1.05);}
-  .about-portrait .placeholder-label{font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold-soft); opacity:0.5;}
-  .about-portrait::before{
-    content:''; position:absolute; top:-18px; left:-18px; right:18px; bottom:18px;
-    border:1px solid var(--gold); z-index:-1;
-  }
-  .about-copy p{font-size:1.12rem; line-height:1.85; color:#e3d9c9; margin-bottom:22px;}
-  .about-copy .stat-row{display:flex; gap:50px; margin-top:40px;}
-  .stat b{font-family:'Patrician',serif; font-size:2.4rem; color:var(--gold-soft); display:block;}
-  .stat span{font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; opacity:0.7;}
+  .about-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:70px; align-items:start;}
+  .about-frame{aspect-ratio:4/5; border:1px solid var(--line); border-radius:6px; position:relative; background:linear-gradient(160deg, rgba(255,95,162,0.1), transparent);}
+  .about-frame .tab{position:absolute; bottom:16px; left:16px; font-size:0.66rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--mute);}
+  .about-copy p{font-size:1.06rem; line-height:1.85; color:var(--mute); max-width:48ch;}
+  .about-copy p + p{margin-top:18px;}
+  .stats{display:grid; grid-template-columns:repeat(3,auto); gap:46px; margin-top:46px; padding-top:32px; border-top:1px solid var(--line);}
+  .stats div b{display:block; font-family:'Patrician',serif; font-size:2.2rem; color:var(--pink);}
+  .stats div span{font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--mute);}
 
   /* ===== SERVICES ===== */
-  .services-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:0; border-top:1px solid var(--line); border-left:1px solid var(--line);}
+  .service-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
   .service-card{
-    position:relative; height:480px; border-right:1px solid var(--line); border-bottom:1px solid var(--line);
-    overflow:hidden; cursor:default;
-    background:linear-gradient(160deg,#1c1318,#0c0a0d);
+    background:var(--bg); padding:40px 28px; min-height:280px; display:flex; flex-direction:column; justify-content:space-between;
+    transition:background .35s ease;
   }
-  .service-card img{width:100%; height:100%; object-fit:cover; filter:grayscale(0.55) brightness(0.6); transition:transform 1.1s ease, filter .6s ease;}
-  .service-card:hover img{transform:scale(1.08); filter:grayscale(0) brightness(0.75);}
-  .service-card::after{content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(12,10,13,0.1), rgba(12,10,13,0.85) 88%);}
-  .service-num{position:absolute; top:24px; left:24px; z-index:2; font-family:'Patrician',serif; font-size:0.85rem; color:var(--gold-soft); letter-spacing:0.1em;}
-  .service-name{
-    position:absolute; bottom:30px; left:24px; right:24px; z-index:2;
-    font-family:'Patrician',serif; font-weight:700; font-size:1.5rem; text-transform:uppercase;
-    letter-spacing:0.04em; color:var(--bone);
-  }
-  .service-name small{display:block; font-family:'Jost',sans-serif; font-weight:300; text-transform:none; letter-spacing:0.02em; font-size:0.85rem; margin-top:8px; color:#cdbfa9; opacity:0; max-height:0; transition:opacity .4s, max-height .4s;}
-  .service-card:hover .service-name small{opacity:1; max-height:60px;}
+  .service-card:hover{background:linear-gradient(160deg, rgba(255,95,162,0.12), transparent);}
+  .service-card .n{font-family:'Patrician',serif; color:var(--pink); font-size:1rem;}
+  .service-card h3{font-size:1.5rem; margin-top:auto;}
+  .service-card p{font-size:0.86rem; color:var(--mute); margin-top:12px; line-height:1.6;}
 
   /* ===== PORTFOLIO ===== */
-  .portfolio{background:var(--ink-2);}
-  .masonry{display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:14px; gap:18px;}
-  .masonry .item{grid-row-end:span 24; position:relative; overflow:hidden; border-radius:2px; background:linear-gradient(160deg,#1c1318,#0c0a0d);}
-  .masonry .item:nth-child(1){grid-row-end:span 30;}
-  .masonry .item:nth-child(2){grid-row-end:span 22;}
-  .masonry .item:nth-child(3){grid-row-end:span 26;}
-  .masonry .item:nth-child(4){grid-column:span 2; grid-row-end:span 16;}
-  .masonry .item:nth-child(5){grid-column:span 2; grid-row-end:span 24;}
-  .masonry .item:nth-child(6){grid-row-end:span 22;}
-  .masonry .item:nth-child(7){grid-row-end:span 26;}
-  .masonry .item img{width:100%; height:100%; object-fit:cover; display:block; transition:transform .8s ease;}
-  .masonry .item:hover img{transform:scale(1.06);}
-  .masonry .item::after{content:''; position:absolute; inset:0; box-shadow:inset 0 0 0 1px var(--line); pointer-events:none;}
+  .grid-frames{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
+  .pframe{aspect-ratio:3/4; border:1px solid var(--line); border-radius:4px; background:linear-gradient(160deg, rgba(255,95,162,0.08), transparent); display:flex; align-items:flex-end; padding:14px;}
+  .pframe span{font-size:0.6rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--mute);}
+  .pframe:nth-child(3n+2){aspect-ratio:3/5;}
 
   /* ===== EXPERIENCE ===== */
-  .timeline{max-width:760px;}
-  .t-item{
-    display:grid; grid-template-columns:30px 1fr; gap:24px;
-    padding:26px 0; border-bottom:1px solid var(--line);
-  }
-  .t-item:first-child{border-top:1px solid var(--line);}
-  .t-dot{width:9px; height:9px; border-radius:50%; background:var(--gold); margin-top:8px; box-shadow:0 0 0 5px rgba(205,163,90,0.12);}
-  .t-item h3{font-size:1.2rem; color:var(--bone); margin-bottom:6px; font-weight:600;}
-  .t-item p{color:#cdbfa9; font-size:0.96rem; line-height:1.6;}
+  .exp-list{display:grid; gap:0; border-top:1px solid var(--line);}
+  .exp-row{display:grid; grid-template-columns:1fr 2fr; gap:40px; padding:30px 0; border-bottom:1px solid var(--line);}
+  .exp-row h3{font-size:1.1rem; font-family:'Jost',sans-serif; font-weight:600;}
+  .exp-row p{font-size:0.92rem; color:var(--mute); line-height:1.6;}
 
-  /* ===== TRUSTED BY marquee ===== */
-  .trusted{padding:90px 0; background:var(--ink-2); overflow:hidden;}
-  .trusted .section-head{padding:0 6%; margin-bottom:50px;}
-  .marquee{display:flex; white-space:nowrap; width:max-content; animation:scroll 26s linear infinite;}
-  .marquee:hover{animation-play-state:paused;}
-  .marquee span{
-    font-family:'Patrician',serif; font-size:2.1rem; letter-spacing:0.03em;
-    color:var(--bone); opacity:0.65; padding:0 56px; display:inline-flex; align-items:center; gap:56px;
+  /* ===== TRUSTED / GIANT TEXT ===== */
+  .giant{position:relative; padding:90px 0 0; overflow:hidden;}
+  .giant h2{
+    font-size:clamp(4rem, 13vw, 11rem); line-height:0.85; color:transparent;
+    -webkit-text-stroke:1px rgba(255,255,255,0.16); text-align:center; white-space:nowrap;
   }
-  .marquee span.alt{color:var(--gold-soft); font-style:italic; opacity:0.85;}
+  .marquee-track{display:flex; width:max-content; animation:scroll 26s linear infinite; margin-top:50px;}
+  .marquee-track:hover{animation-play-state:paused;}
+  .marquee-track .grp{display:flex; align-items:center;}
+  .marquee-track .grp span{
+    font-family:'Patrician',serif; font-size:1.9rem; padding:0 50px; border-right:1px solid var(--line); opacity:0.8;
+  }
   @keyframes scroll{from{transform:translateX(0);} to{transform:translateX(-50%);}}
 
   /* ===== BOOKING ===== */
-  .booking{background:linear-gradient(180deg, var(--ink) 0%, #1a0f14 55%, var(--ink) 100%);}
-  .booking-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:70px;}
-  .booking-info p{font-size:1.06rem; line-height:1.8; color:#e3d9c9; margin-bottom:28px;}
-  .info-line{display:flex; gap:14px; margin-bottom:16px; font-size:0.95rem; color:var(--gold-soft);}
-  form{display:grid; gap:20px;}
-  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
-  label{font-size:0.74rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold-soft); margin-bottom:8px; display:block;}
-  input, select, textarea{
-    width:100%; background:transparent; border:none; border-bottom:1px solid rgba(243,236,223,0.3);
-    padding:12px 2px; color:var(--bone); font-family:'Jost',sans-serif; font-size:1rem; font-weight:300;
+  .booking-card{
+    border:1px solid var(--line); border-radius:10px; padding:70px 60px; position:relative; overflow:hidden;
+    background:linear-gradient(160deg, rgba(255,95,162,0.08), rgba(255,255,255,0.02));
   }
-  input::placeholder, textarea::placeholder{color:rgba(243,236,223,0.35);}
-  input:focus, select:focus, textarea:focus{outline:none; border-bottom-color:var(--gold);}
-  select option{background:var(--ink);}
-  textarea{resize:vertical; min-height:90px;}
+  .booking-grid{display:grid; grid-template-columns:0.85fr 1.15fr; gap:70px;}
+  .booking-copy p{color:var(--mute); font-size:1.02rem; line-height:1.8; max-width:38ch; margin-bottom:30px;}
+  .contact-line{display:flex; gap:14px; font-size:0.92rem; padding:14px 0; border-top:1px solid var(--line);}
+  .contact-line span:first-child{color:var(--pink); min-width:20px;}
+
+  form{display:grid; gap:18px;}
+  .f-row{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  .field{border-bottom:1px solid var(--line); padding:14px 0;}
+  label{font-size:0.66rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--mute); display:block; margin-bottom:8px;}
+  input, select, textarea{
+    width:100%; background:none; border:none; color:var(--white);
+    font-family:'Jost',sans-serif; font-size:1rem; font-weight:300; padding:0;
+  }
+  input::placeholder, textarea::placeholder{color:rgba(255,255,255,0.3);}
+  input:focus, select:focus, textarea:focus{outline:none; border-bottom:none;}
+  select option{background:var(--bg);}
+  textarea{resize:none; min-height:26px;}
   .submit-btn{
-    margin-top:10px; justify-self:start; background:var(--gold); color:var(--ink); border:none;
-    padding:16px 38px; font-size:0.82rem; letter-spacing:0.16em; text-transform:uppercase; cursor:pointer;
+    margin-top:6px; justify-self:start; background:var(--pink); color:#fff; border:none; border-radius:2px;
+    padding:16px 34px; font-size:0.74rem; letter-spacing:0.16em; text-transform:uppercase; cursor:pointer;
     transition:background .3s, color .3s;
   }
-  .submit-btn:hover{background:var(--gold-soft);}
-  .form-note{font-size:0.8rem; color:#cdbfa9; opacity:0.7; margin-top:4px;}
+  .submit-btn:hover{background:var(--white); color:var(--bg);}
+  .form-note{font-size:0.74rem; color:var(--mute); margin-top:10px;}
 
-  /* ===== FOOTER ===== */
-  footer{padding:50px 6%; border-top:1px solid var(--line); display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px; font-size:0.82rem; color:#a99878;}
-  footer a:hover{color:var(--gold-soft);}
+  footer{
+    border-top:1px solid var(--line); padding:40px 0;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:14px;
+    font-size:0.76rem; color:var(--mute);
+  }
+  footer a:hover{color:var(--pink);}
 
   @media (max-width:980px){
     nav ul, .nav-cta{display:none;}
     .menu-btn{display:block;}
-    .about-grid, .booking-grid{grid-template-columns:1fr; gap:46px;}
-    .services-grid{grid-template-columns:repeat(2,1fr);}
-    .masonry{grid-template-columns:repeat(2,1fr);}
-    .masonry .item:nth-child(4), .masonry .item:nth-child(5){grid-column:span 2;}
-    .form-row{grid-template-columns:1fr;}
+    .hero-grid, .about-grid, .booking-grid, .exp-row{grid-template-columns:1fr; gap:34px;}
+    .hero-frames{height:340px; margin-top:30px;}
+    .service-grid{grid-template-columns:repeat(2,1fr);}
+    .grid-frames{grid-template-columns:repeat(2,1fr);}
+    .f-row{grid-template-columns:1fr;}
+    .booking-card{padding:46px 28px;}
   }
   @media (max-width:600px){
-    section{padding:90px 6%;}
-    .services-grid{grid-template-columns:1fr;}
-    .stat-row{flex-wrap:wrap; gap:30px;}
+    .wrap{padding:0 6%;}
+    section{padding:90px 0;}
+    .service-grid, .grid-frames{grid-template-columns:1fr;}
+    .giant h2{font-size:14vw;}
   }
-  @media (prefers-reduced-motion: reduce){
-    *{animation:none !important; transition:none !important;}
-  }
+  @media (prefers-reduced-motion: reduce){ *{animation:none !important; transition:none !important;} }
 </style>
 </head>
 <body>
 
-<header id="header">
-  <a class="logo" href="#top">Kashmira<span>.</span></a>
+<div class="glow glow-1"></div>
+<div class="glow glow-2"></div>
+
+<header>
+  <a class="logo" href="#top">Kashmira<span class="dot">.</span> Makeovers</a>
   <nav>
     <ul>
       <li><a href="#about">About</a></li>
@@ -271,190 +226,192 @@
 </header>
 
 <section class="hero" id="top">
-  <div class="hero-bg">
-    <!-- Add hero photo: images/hero-portrait.jpg -->
-    <!-- <img src="images/hero-portrait.jpg" alt="Kashmira, makeup artist"> -->
-  </div>
-  <div class="hero-content">
-    
-    <h1>Kashmira Makeovers<br><em>Bridal &amp;<br>Editorial</em><br>Artistry</h1>
-    <p>A refined eye for detail across bridal, fashion, editorial and portrait makeovers &mdash; trusted by global beauty houses and 150+ brides.</p>
-    <div class="btn-row">
-      <a href="#booking" class="btn btn-primary">Book a Slot</a>
-      <a href="#portfolio" class="btn btn-ghost">View Portfolio</a>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="tag">Makeup Artistry</span>
+        <h1>Kashmira<br>Makeovers<br><span class="grad">Bridal &amp; Editorial</span></h1>
+        <p>A refined eye for detail across bridal, fashion, editorial and portrait makeovers — trusted by global beauty houses and 150+ brides.</p>
+        <div class="btn-row">
+          <a href="#booking" class="btn btn-pink">Book a Slot</a>
+          <a href="#portfolio" class="btn btn-ghost">View Portfolio</a>
+        </div>
+      </div>
+      <div class="hero-frames reveal">
+        <div class="frame frame-a"><span>Add photo — images/hero-1.jpg</span></div>
+        <div class="frame frame-b"><span>Add photo — images/hero-2.jpg</span></div>
+      </div>
     </div>
   </div>
-  <div class="scroll-cue">Scroll</div>
 </section>
 
-<section class="about" id="about">
-  <div class="about-grid">
-    <div class="about-portrait reveal">
-      <!-- Add portrait photo: images/hero-portrait.jpg -->
-      <!-- <img src="images/hero-portrait.jpg" alt="Kashmira, makeup artist"> -->
-      <span class="placeholder-label">Add Photo</span>
-    </div>
-    <div class="about-copy reveal">
-      <span class="eyebrow">About Kashmira</span>
-      <h2 style="margin:18px 0 28px;">Precision, creativity<br>&amp;&nbsp;elegance, in every look.</h2>
-      <p>A seasoned makeup artist with a refined eye for detail, specializing in editorial, fashion, portrait, and bridal artistry.</p>
-      <p>With over 150 bridal transformations and a strong presence in the fashion and entertainment industry, Kashmira brings precision, creativity, and elegance to every look.</p>
-      <div class="stat-row">
-        <div class="stat"><b>150+</b><span>Bridal Looks</span></div>
-        <div class="stat"><b>10+</b><span>Years Experience</span></div>
-        <div class="stat"><b>5</b><span>Global Brands</span></div>
+<section id="about">
+  <div class="wrap">
+    <span class="eyebrow">About Kashmira</span>
+    <div class="about-grid">
+      <div class="about-frame reveal">
+        <div class="tab">Add Photo — images/hero-portrait.jpg</div>
+      </div>
+      <div class="about-copy reveal">
+        <h2 style="margin-bottom:26px; font-size:clamp(1.8rem,3.4vw,2.6rem);">Precision, creativity &amp; elegance, in every look.</h2>
+        <p>A seasoned makeup artist with a refined eye for detail, specializing in editorial, fashion, portrait, and bridal artistry.</p>
+        <p>With over 150 bridal transformations and a strong presence in the fashion and entertainment industry, Kashmira brings precision, creativity, and elegance to every look.</p>
+        <div class="stats">
+          <div><b>150+</b><span>Bridal Looks</span></div>
+          <div><b>10+</b><span>Years Experience</span></div>
+          <div><b>5</b><span>Global Brands</span></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <section id="services">
-  <div class="section-head reveal">
-    
-    <h2>Services</h2>
-    <div class="rule"></div>
-  </div>
-  <div class="services-grid reveal">
-    <div class="service-card">
-      <!-- Add photo: images/bridal.jpg -->
-      <!-- <img src="images/bridal.jpg" alt="Bridal makeup"> -->
-      <span class="service-num">01</span>
-      <div class="service-name">Bridal<small>Traditional &amp; contemporary bridal looks, built to last the day.</small></div>
+  <div class="wrap">
+    <div class="section-head">
+      
+      <h2>Services</h2>
     </div>
-    <div class="service-card">
-      <!-- Add photo: images/portrait.jpg -->
-      <!-- <img src="images/portrait.jpg" alt="Portrait makeover"> -->
-      <span class="service-num">02</span>
-      <div class="service-name">Portrait Makeover<small>Soft, camera-ready transformations for personal shoots.</small></div>
-    </div>
-    <div class="service-card">
-      <!-- Add photo: images/fashion.jpg -->
-      <!-- <img src="images/fashion.jpg" alt="Fashion makeup"> -->
-      <span class="service-num">03</span>
-      <div class="service-name">Fashion<small>Runway and campaign-ready artistry with editorial precision.</small></div>
-    </div>
-    <div class="service-card">
-      <!-- Add photo: images/editorial.jpg -->
-      <!-- <img src="images/editorial.jpg" alt="Editorial makeup"> -->
-      <span class="service-num">04</span>
-      <div class="service-name">Editorial<small>Bold, concept-driven looks for shoots and publications.</small></div>
+    <div class="service-grid reveal">
+      <div class="service-card">
+        <span class="n">01</span>
+        <div><h3>Bridal</h3><p>Traditional &amp; contemporary bridal looks, built to last the day.</p></div>
+      </div>
+      <div class="service-card">
+        <span class="n">02</span>
+        <div><h3>Portrait Makeover</h3><p>Soft, camera-ready transformations for personal shoots.</p></div>
+      </div>
+      <div class="service-card">
+        <span class="n">03</span>
+        <div><h3>Fashion</h3><p>Runway and campaign-ready artistry with editorial precision.</p></div>
+      </div>
+      <div class="service-card">
+        <span class="n">04</span>
+        <div><h3>Editorial</h3><p>Bold, concept-driven looks for shoots and publications.</p></div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="portfolio" id="portfolio">
-  <div class="section-head reveal">
-    <span class="eyebrow">Selected Work</span>
-    <h2>Portfolio</h2>
-    <div class="rule"></div>
-  </div>
-  <div class="masonry reveal">
-    <div class="item"><!-- <img src="images/portfolio-1.jpg" alt="Portfolio look"> --></div>
-    <div class="item"><!-- <img src="images/portfolio-2.jpg" alt="Portfolio look"> --></div>
-    <div class="item"><!-- <img src="images/portfolio-3.jpg" alt="Portfolio look"> --></div>
-    <div class="item"><!-- <img src="images/portfolio-4.jpg" alt="Portfolio look"> --></div>
-    <div class="item"><!-- <img src="images/portfolio-5.jpg" alt="Portfolio look"> --></div>
-    <div class="item"><!-- <img src="images/portfolio-6.jpg" alt="Portfolio look"> --></div>
-    <div class="item"><!-- <img src="images/portfolio-7.jpg" alt="Portfolio look"> --></div>
+<section id="portfolio">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Selected Work</span>
+      <h2>Portfolio</h2>
+    </div>
+    <div class="grid-frames reveal">
+      <div class="pframe"><span>images/portfolio-1.jpg</span></div>
+      <div class="pframe"><span>images/portfolio-2.jpg</span></div>
+      <div class="pframe"><span>images/portfolio-3.jpg</span></div>
+      <div class="pframe"><span>images/portfolio-4.jpg</span></div>
+      <div class="pframe"><span>images/portfolio-5.jpg</span></div>
+      <div class="pframe"><span>images/portfolio-6.jpg</span></div>
+      <div class="pframe"><span>images/portfolio-7.jpg</span></div>
+      <div class="pframe"><span>images/portfolio-8.jpg</span></div>
+    </div>
   </div>
 </section>
 
 <section id="experience">
-  <div class="section-head reveal">
-    
-    <h2>Experience</h2>
-    <div class="rule"></div>
-  </div>
-  <div class="timeline reveal">
-    <div class="t-item"><div class="t-dot"></div><div><h3>Times Fashion Week 2023</h3><p>Backstage &amp; Runway Artist</p></div></div>
-    <div class="t-item"><div class="t-dot"></div><div><h3>Times Women Power</h3><p>Show by renowned designer Prasad Bidapa</p></div></div>
-    <div class="t-item"><div class="t-dot"></div><div><h3>Samsung Opera House</h3><p>Live Show Artistry</p></div></div>
-    <div class="t-item"><div class="t-dot"></div><div><h3>Celebrity Makeovers</h3><p>Gauri Nalawade, Gul Panag &amp; Akriti Kakkar</p></div></div>
-    <div class="t-item"><div class="t-dot"></div><div><h3>Global Models Makeovers</h3><p>International model styling &amp; grooming</p></div></div>
-    <div class="t-item"><div class="t-dot"></div><div><h3>150+ Bridal Makeovers</h3><p>Across traditional &amp; contemporary weddings</p></div></div>
-    <div class="t-item"><div class="t-dot"></div><div><h3>Zorains Studio</h3><p>Professional Makeup Course</p></div></div>
-    <div class="t-item"><div class="t-dot"></div><div><h3>JD School of Design</h3><p>Garments &amp; Fashion</p></div></div>
-  </div>
-</section>
-
-<section class="trusted">
-  <div class="section-head reveal">
-    <span class="eyebrow">Industry Trust</span>
-    <h2>Trusted By</h2>
-    <div class="rule"></div>
-  </div>
-  <div class="marquee" id="marquee">
-    <span>Bobbi Brown<span class="alt">&middot;</span>MAC<span class="alt">&middot;</span>Koskii<span class="alt">&middot;</span>Daniel Wellington<span class="alt">&middot;</span></span>
-    <span>Bobbi Brown<span class="alt">&middot;</span>MAC<span class="alt">&middot;</span>Koskii<span class="alt">&middot;</span>Daniel Wellington<span class="alt">&middot;</span></span>
-  </div>
-</section>
-
-<section class="booking" id="booking">
-  <div class="booking-grid">
-    <div class="booking-info reveal">
-      <span class="eyebrow">Reserve Your Date</span>
-      <h2 style="margin:18px 0 24px;">Book a Slot</h2>
-      <p>Tell Kashmira a little about your event and preferred date, and she'll get back to you to confirm availability.</p>
-      <div class="info-line">&#9742;&nbsp; +91 00000 00000</div>
-      <div class="info-line">&#9993;&nbsp; hello@kashmiramakeup.com</div>
-      <div class="info-line">&#128205;&nbsp; Mumbai, India</div>
+  <div class="wrap">
+    <div class="section-head">
+      
+      <h2>Experience</h2>
     </div>
-    <form class="reveal" id="bookingForm">
-      <div class="form-row">
-        <div>
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Your full name" required>
+    <div class="exp-list reveal">
+      <div class="exp-row"><h3>Times Fashion Week 2023</h3><p>Backstage &amp; Runway Artist</p></div>
+      <div class="exp-row"><h3>Times Women Power</h3><p>Show by renowned designer Prasad Bidapa</p></div>
+      <div class="exp-row"><h3>Samsung Opera House</h3><p>Live Show Artistry</p></div>
+      <div class="exp-row"><h3>Celebrity Makeovers</h3><p>Gauri Nalawade, Gul Panag &amp; Akriti Kakkar</p></div>
+      <div class="exp-row"><h3>Global Models Makeovers</h3><p>International model styling &amp; grooming</p></div>
+      <div class="exp-row"><h3>150+ Bridal Makeovers</h3><p>Across traditional &amp; contemporary weddings</p></div>
+      <div class="exp-row"><h3>Zorains Studio</h3><p>Professional Makeup Course</p></div>
+      <div class="exp-row"><h3>JD School of Design</h3><p>Garments &amp; Fashion</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="giant">
+  <h2>TRUSTED BY</h2>
+  <div class="marquee-track">
+    <div class="grp"><span>Bobbi Brown</span><span>MAC</span><span>Koskii</span><span>Daniel Wellington</span></div>
+    <div class="grp"><span>Bobbi Brown</span><span>MAC</span><span>Koskii</span><span>Daniel Wellington</span></div>
+  </div>
+</section>
+
+<section id="booking">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Reserve Your Date</span>
+      <h2>Book a Slot</h2>
+    </div>
+    <div class="booking-card reveal">
+      <div class="booking-grid">
+        <div class="booking-copy">
+          <p>Tell Kashmira a little about your event and preferred date, and she'll get back to you to confirm availability.</p>
+          <div class="contact-line"><span>&#9742;</span><span>+91 00000 00000</span></div>
+          <div class="contact-line"><span>&#9993;</span><span>hello@kashmiramakeup.com</span></div>
+          <div class="contact-line"><span>&#128205;</span><span>Mumbai, India</span></div>
         </div>
-        <div>
-          <label for="phone">Phone</label>
-          <input type="tel" id="phone" name="phone" placeholder="Your phone number" required>
-        </div>
+        <form id="bookingForm">
+          <div class="f-row">
+            <div class="field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your full name" required>
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" placeholder="Your phone number" required>
+            </div>
+          </div>
+          <div class="f-row">
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="you@email.com" required>
+            </div>
+            <div class="field">
+              <label for="service">Service</label>
+              <select id="service" name="service" required>
+                <option value="" disabled selected>Choose a service</option>
+                <option>Bridal</option>
+                <option>Portrait Makeover</option>
+                <option>Fashion</option>
+                <option>Editorial</option>
+              </select>
+            </div>
+          </div>
+          <div class="f-row">
+            <div class="field">
+              <label for="date">Preferred Date</label>
+              <input type="date" id="date" name="date" required>
+            </div>
+            <div class="field">
+              <label for="city">City / Venue</label>
+              <input type="text" id="city" name="city" placeholder="Where's the event?">
+            </div>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us about your event, look you have in mind, etc."></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send Request</button>
+          <p class="form-note">This form opens your email app to send the request directly to Kashmira.</p>
+        </form>
       </div>
-      <div class="form-row">
-        <div>
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="you@email.com" required>
-        </div>
-        <div>
-          <label for="service">Service</label>
-          <select id="service" name="service" required>
-            <option value="" disabled selected>Choose a service</option>
-            <option>Bridal</option>
-            <option>Portrait Makeover</option>
-            <option>Fashion</option>
-            <option>Editorial</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-row">
-        <div>
-          <label for="date">Preferred Date</label>
-          <input type="date" id="date" name="date" required>
-        </div>
-        <div>
-          <label for="city">City / Venue</label>
-          <input type="text" id="city" name="city" placeholder="Where's the event?">
-        </div>
-      </div>
-      <div>
-        <label for="message">Message</label>
-        <textarea id="message" name="message" placeholder="Tell us about your event, look you have in mind, etc."></textarea>
-      </div>
-      <button type="submit" class="submit-btn">Send Request</button>
-      <p class="form-note">This form opens your email app to send the request directly to Kashmira.</p>
-    </form>
+    </div>
   </div>
 </section>
 
 <footer>
-  <span>&copy; <span id="year"></span> Kashmira Makeup Artistry. All rights reserved.</span>
-  <span><a href="#top">Back to top &uarr;</a></span>
+  <div class="wrap" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:14px; width:100%;">
+    <span>&copy; <span id="year"></span> Kashmira Makeovers. All rights reserved.</span>
+    <a href="#top">Back to top &uarr;</a>
+  </div>
 </footer>
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // mobile menu toggle (simple show/hide of nav)
   const menuBtn = document.getElementById('menuBtn');
   const navUl = document.querySelector('nav ul');
   const navCta = document.querySelector('.nav-cta');
@@ -463,22 +420,21 @@
     navUl.style.display = open ? 'none' : 'flex';
     navUl.style.flexDirection = 'column';
     navUl.style.position = 'absolute';
-    navUl.style.top = '70px';
-    navUl.style.right = '6%';
-    navUl.style.background = '#15111a';
+    navUl.style.top = '64px';
+    navUl.style.right = '7vw';
+    navUl.style.background = '#070708';
+    navUl.style.border = '1px solid rgba(255,255,255,0.1)';
     navUl.style.padding = '20px 26px';
     navUl.style.gap = '16px';
     navCta.style.display = open ? 'none' : 'inline-flex';
   });
 
-  // scroll reveal
   const revealEls = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
   }, { threshold: 0.15 });
   revealEls.forEach(el => io.observe(el));
 
-  // booking form -> mailto submission (no backend)
   document.getElementById('bookingForm').addEventListener('submit', function (e) {
     e.preventDefault();
     const f = e.target;
