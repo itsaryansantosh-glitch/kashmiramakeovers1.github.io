@@ -6,6 +6,12 @@
 <title>Kashmira | Makeup Artist</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,900;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+@font-face {
+  font-family: 'Patrician';
+  src: url('fonts/Patrician.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 <style>
   :root{
     --ink:#0c0a0d;
@@ -30,7 +36,7 @@
   ::selection{background:var(--gold);color:var(--ink);}
 
   h1,h2,h3,.display{
-    font-family:'Playfair Display', serif;
+    font-family:'Patrician', serif;
     font-weight:700;
     letter-spacing:0.01em;
   }
@@ -55,7 +61,7 @@
     transition:background 0.4s;
   }
   .logo{
-    font-family:'Playfair Display',serif; font-weight:900; font-size:1.4rem;
+    font-family:'Patrician',serif; font-weight:900; font-size:1.4rem;
     letter-spacing:0.04em; color:var(--bone);
   }
   .logo span{color:var(--gold);}
@@ -141,7 +147,7 @@
   }
   .about-copy p{font-size:1.12rem; line-height:1.85; color:#e3d9c9; margin-bottom:22px;}
   .about-copy .stat-row{display:flex; gap:50px; margin-top:40px;}
-  .stat b{font-family:'Playfair Display',serif; font-size:2.4rem; color:var(--gold-soft); display:block;}
+  .stat b{font-family:'Patrician',serif; font-size:2.4rem; color:var(--gold-soft); display:block;}
   .stat span{font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; opacity:0.7;}
 
   /* ===== SERVICES ===== */
@@ -154,10 +160,10 @@
   .service-card img{width:100%; height:100%; object-fit:cover; filter:grayscale(0.55) brightness(0.6); transition:transform 1.1s ease, filter .6s ease;}
   .service-card:hover img{transform:scale(1.08); filter:grayscale(0) brightness(0.75);}
   .service-card::after{content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(12,10,13,0.1), rgba(12,10,13,0.85) 88%);}
-  .service-num{position:absolute; top:24px; left:24px; z-index:2; font-family:'Playfair Display',serif; font-size:0.85rem; color:var(--gold-soft); letter-spacing:0.1em;}
+  .service-num{position:absolute; top:24px; left:24px; z-index:2; font-family:'Patrician',serif; font-size:0.85rem; color:var(--gold-soft); letter-spacing:0.1em;}
   .service-name{
     position:absolute; bottom:30px; left:24px; right:24px; z-index:2;
-    font-family:'Playfair Display',serif; font-weight:700; font-size:1.5rem; text-transform:uppercase;
+    font-family:'Patrician',serif; font-weight:700; font-size:1.5rem; text-transform:uppercase;
     letter-spacing:0.04em; color:var(--bone);
   }
   .service-name small{display:block; font-family:'Jost',sans-serif; font-weight:300; text-transform:none; letter-spacing:0.02em; font-size:0.85rem; margin-top:8px; color:#cdbfa9; opacity:0; max-height:0; transition:opacity .4s, max-height .4s;}
@@ -195,7 +201,7 @@
   .marquee{display:flex; white-space:nowrap; width:max-content; animation:scroll 26s linear infinite;}
   .marquee:hover{animation-play-state:paused;}
   .marquee span{
-    font-family:'Playfair Display',serif; font-size:2.1rem; letter-spacing:0.03em;
+    font-family:'Patrician',serif; font-size:2.1rem; letter-spacing:0.03em;
     color:var(--bone); opacity:0.65; padding:0 56px; display:inline-flex; align-items:center; gap:56px;
   }
   .marquee span.alt{color:var(--gold-soft); font-style:italic; opacity:0.85;}
@@ -270,8 +276,8 @@
     <!-- <img src="images/hero-portrait.jpg" alt="Kashmira, makeup artist"> -->
   </div>
   <div class="hero-content">
-    <div class="eyebrow">Makeup Artistry</div>
-    <h1>Kashmira<br><em>Bridal &amp; Editorial</em><br>Artistry</h1>
+    
+    <h1>Kashmira Makeovers<br><em>Bridal &amp; Editorial</em><br>Artistry</h1>
     <p>A refined eye for detail across bridal, fashion, editorial and portrait makeovers &mdash; trusted by global beauty houses and 150+ brides.</p>
     <div class="btn-row">
       <a href="#booking" class="btn btn-primary">Book a Slot</a>
