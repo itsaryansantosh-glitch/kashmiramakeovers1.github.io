@@ -163,12 +163,8 @@
   .marquee-track{display:flex; width:max-content; animation:scroll 26s linear infinite; margin-top:50px;}
   .marquee-track:hover{animation-play-state:paused;}
   .marquee-track .grp{display:flex; align-items:center;}
-  .marquee-track .grp img{
-    height:35px; width:auto; padding:0 50px;
-    filter:grayscale(100%) brightness(2);
-    opacity:0.6; transition:all 0.3s ease;
-    border-right:1px solid var(--line);
-    object-fit:contain;
+  .marquee-track .grp span{
+    font-family:'Patrician',serif; font-size:1.9rem; padding:0 50px; border-right:1px solid var(--line); opacity:0.8;
   }
 .marquee-track .grp img:hover{
     filter:grayscale(0%) brightness(1);
