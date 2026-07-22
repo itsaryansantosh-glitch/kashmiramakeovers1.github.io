@@ -163,8 +163,15 @@
   .marquee-track{display:flex; width:max-content; animation:scroll 26s linear infinite; margin-top:50px;}
   .marquee-track:hover{animation-play-state:paused;}
   .marquee-track .grp{display:flex; align-items:center;}
-  .marquee-track .grp span{
-    font-family:'Patrician',serif; font-size:1.9rem; padding:0 50px; border-right:1px solid var(--line); opacity:0.8;
+  .marquee-track .grp img{
+    height:60px; width:auto; padding:0 40px;
+    filter:grayscale(100%) brightness(1.5);
+    opacity:0.7; transition:all 0.3s ease;
+    border-right:1px solid var(--line);
+  }
+.marquee-track .grp img:hover{
+    filter:grayscale(0%) brightness(1);
+    opacity:1;
   }
   @keyframes scroll{from{transform:translateX(0);} to{transform:translateX(-50%);}}
 
@@ -379,8 +386,24 @@
 <section class="giant">
   <h2>TRUSTED BY</h2>
   <div class="marquee-track">
-    <div class="grp"><span>Bobbi Brown</span><span>MAC</span><span>Koskii</span><span>Daniel Wellington</span><span>Summer Varma</span><span>Ashley Rebello</span><span>Marks and Spencer</span><span>Trends</span><span>Tarun Tahiliani</span></div>
-<div class="grp"><span>Bobbi Brown</span><span>MAC</span><span>Koskii</span><span>Daniel Wellington</span><span>Summer Varma</span><span>Ashley Rebello</span><span>Marks and Spencer</span><span>Trends</span><span>Tarun Tahiliani</span></div>
+    <div class="grp">
+      <img src="images/brand-bobbibrown.png" alt="Bobbi Brown">
+      <img src="images/brand-mac.png" alt="MAC">
+      <img src="images/brand-koskii.png" alt="Koskii">
+      <img src="images/brand-danielwellington.png" alt="Daniel Wellington">
+      <img src="images/brand-marks.png" alt="Marks and Spencer">
+      <img src="images/brand-trends.png" alt="Trends">
+      <img src="images/brand-samsung.png" alt="Samsung Opera House">
+    </div>
+    <div class="grp">
+      <img src="images/brand-bobbibrown.png" alt="Bobbi Brown">
+      <img src="images/brand-mac.png" alt="MAC">
+      <img src="images/brand-koskii.png" alt="Koskii">
+      <img src="images/brand-danielwellington.png" alt="Daniel Wellington">
+      <img src="images/brand-marks.png" alt="Marks and Spencer">
+      <img src="images/brand-trends.png" alt="Trends">
+      <img src="images/brand-samsung.png" alt="Samsung Opera House">
+    </div>
   </div>
 </section>
 
