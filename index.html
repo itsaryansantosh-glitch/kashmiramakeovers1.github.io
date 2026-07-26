@@ -162,16 +162,13 @@
   }
   .brand-list{max-width:640px; margin:50px auto 0; display:flex; flex-direction:column; border-top:1px solid var(--line);}
   .brand-list .brand{
-    display:flex; align-items:center; gap:20px; padding:24px 0; border-bottom:1px solid var(--line); opacity:0.85; transition:opacity .3s ease;
+    display:flex; align-items:center; justify-content:center; padding:30px 0; border-bottom:1px solid var(--line); opacity:0.85; transition:opacity .3s ease;
   }
   .brand-list .brand:hover{opacity:1;}
   .brand-list .brand img{
-    height:32px; width:auto; max-width:140px; object-fit:contain; filter:grayscale(100%) brightness(1.8); transition:filter .3s ease;
+    height:44px; width:auto; max-width:220px; object-fit:contain; filter:grayscale(100%) brightness(1.8); transition:filter .3s ease;
   }
   .brand-list .brand:hover img{filter:grayscale(0%) brightness(1);}
-  .brand-list .brand span{
-    font-family:'Patrician',serif; font-size:1.5rem;
-  }
 
   /* ===== BOOKING ===== */
   .booking-card{
@@ -231,8 +228,7 @@
     .exp-row h3{font-size:1rem;}
     .giant h2{font-size:11vw; white-space:normal; word-break:break-word; padding:0 4%;}
     .brand-list{padding:0 5vw;}
-    .brand-list .brand span{font-size:1.2rem;}
-    .brand-list .brand img{height:26px;}
+    .brand-list .brand img{height:32px;}
     .booking-card{padding:28px 18px;}
     .booking-grid{grid-template-columns:1fr; gap:30px;}
     .f-row{grid-template-columns:1fr;}
@@ -385,13 +381,13 @@
 <section class="giant">
   <h2>TRUSTED BY</h2>
   <div class="brand-list">
-    <div class="brand"><img src="images/logos/brand-bobbibrown.png" alt="Bobbi Brown logo" onerror="this.style.display='none'"><span>Bobbi Brown</span></div>
-    <div class="brand"><img src="images/logos/brand-mac.png" alt="MAC logo" onerror="this.style.display='none'"><span>MAC</span></div>
-    <div class="brand"><img src="images/logos/brand-koskii.png" alt="Koskii logo" onerror="this.style.display='none'"><span>Koskii</span></div>
-    <div class="brand"><img src="images/logos/brand-danielwellington.png" alt="Daniel Wellington logo" onerror="this.style.display='none'"><span>Daniel Wellington</span></div>
-    <div class="brand"><img src="images/logos/brand-marks.png" alt="Marks & Spencer logo" onerror="this.style.display='none'"><span>Marks & Spencer</span></div>
-    <div class="brand"><img src="images/logos/brand-trends.png" alt="Trends logo" onerror="this.style.display='none'"><span>Trends</span></div>
-    <div class="brand"><img src="images/logos/brand-samsung.png" alt="Samsung Opera House logo" onerror="this.style.display='none'"><span>Samsung Opera House</span></div>
+    <div class="brand"><img src="images/logos/brand-bobbibrown.png" alt="Bobbi Brown logo" onerror="this.style.display='none'"></div>
+    <div class="brand"><img src="images/logos/brand-mac.png" alt="MAC logo" onerror="this.style.display='none'"></div>
+    <div class="brand"><img src="images/logos/brand-koskii.png" alt="Koskii logo" onerror="this.style.display='none'"></div>
+    <div class="brand"><img src="images/logos/brand-danielwellington.png" alt="Daniel Wellington logo" onerror="this.style.display='none'"></div>
+    <div class="brand"><img src="images/logos/brand-marks.png" alt="Marks & Spencer logo" onerror="this.style.display='none'"></div>
+    <div class="brand"><img src="images/logos/brand-trends.png" alt="Trends logo" onerror="this.style.display='none'"></div>
+    <div class="brand"><img src="images/logos/brand-samsung.png" alt="Samsung Opera House logo" onerror="this.style.display='none'"></div>
   </div>
 </section>
 
