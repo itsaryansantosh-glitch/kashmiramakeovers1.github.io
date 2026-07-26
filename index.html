@@ -153,24 +153,25 @@
   .exp-row p{font-size:0.92rem; color:var(--mute); line-height:1.6;}
 
   /* ===== TRUSTED / GIANT TEXT ===== */
-  .giant{position:relative; padding:90px 0 0; overflow:hidden;}
+  .giant{position:relative; padding:90px 0 110px;}
   .giant h2{
     font-size:clamp(4rem, 13vw, 11rem); line-height:0.85;
     background:linear-gradient(100deg, #ffffff, #ff5fa2);
     -webkit-background-clip:text; background-clip:text; color:transparent;
     -webkit-text-stroke:0px; text-align:center; white-space:nowrap;
   }
-  .marquee-track{display:flex; width:max-content; animation:scroll 26s linear infinite; margin-top:50px;}
-  .marquee-track:hover{animation-play-state:paused;}
-  .marquee-track .grp{display:flex; align-items:center;}
-  .marquee-track .grp span{
-    font-family:'Patrician',serif; font-size:1.9rem; padding:0 50px; border-right:1px solid var(--line); opacity:0.8;
+  .brand-list{max-width:640px; margin:50px auto 0; display:flex; flex-direction:column; border-top:1px solid var(--line);}
+  .brand-list .brand{
+    display:flex; align-items:center; gap:20px; padding:24px 0; border-bottom:1px solid var(--line); opacity:0.85; transition:opacity .3s ease;
   }
-.marquee-track .grp img:hover{
-    filter:grayscale(0%) brightness(1);
-    opacity:1;
+  .brand-list .brand:hover{opacity:1;}
+  .brand-list .brand img{
+    height:32px; width:auto; max-width:140px; object-fit:contain; filter:grayscale(100%) brightness(1.8); transition:filter .3s ease;
   }
-  @keyframes scroll{from{transform:translateX(0);} to{transform:translateX(-50%);}}
+  .brand-list .brand:hover img{filter:grayscale(0%) brightness(1);}
+  .brand-list .brand span{
+    font-family:'Patrician',serif; font-size:1.5rem;
+  }
 
   /* ===== BOOKING ===== */
   .booking-card{
@@ -229,7 +230,9 @@
     .exp-row{grid-template-columns:1fr; gap:6px; padding:20px 0;}
     .exp-row h3{font-size:1rem;}
     .giant h2{font-size:11vw; white-space:normal; word-break:break-word; padding:0 4%;}
-    .marquee-track .grp span{font-size:1rem; padding:0 20px;}
+    .brand-list{padding:0 5vw;}
+    .brand-list .brand span{font-size:1.2rem;}
+    .brand-list .brand img{height:26px;}
     .booking-card{padding:28px 18px;}
     .booking-grid{grid-template-columns:1fr; gap:30px;}
     .f-row{grid-template-columns:1fr;}
@@ -256,7 +259,6 @@
       <li><a href="#services">Services</a></li>
       <li><a href="#portfolio">Portfolio</a></li>
       <li><a href="#experience">Experience</a></li>
-      <li><a href="#booking" class="nav-cta" style="display:inline-block;margin-top:8px;">Book Now</a></li>
     </ul>
   </nav>
   <a class="nav-cta" href="#booking">Book Now</a>
@@ -372,7 +374,6 @@
       <div class="exp-row"><h3>Times Fashion Week 2023 & 2026</h3><p>Backstage &amp; Runway Artist</p></div>
       <div class="exp-row"><h3>Times Women Power</h3><p>Show by renowned designer Prasad Bidapa</p></div>
       <div class="exp-row"><h3>Samsung Opera House</h3><p>Live Show Artistry</p></div>
-      <div class="exp-row"><h3>Celebrity Makeovers</h3><p>Gauri Nalawade, Gul Panag &amp; Akriti Kakkar</p></div>
       <div class="exp-row"><h3>Global Models Makeovers</h3><p>International model styling &amp; grooming</p></div>
       <div class="exp-row"><h3>150+ Bridal Makeovers</h3><p>Across traditional &amp; contemporary weddings</p></div>
       <div class="exp-row"><h3>Zorains Studio</h3><p>Professional Makeup Course</p></div>
@@ -383,14 +384,15 @@
 
 <section class="giant">
   <h2>TRUSTED BY</h2>
-  <div class="marquee-track">
-  <div class="grp">
-    <span>Bobbi Brown</span><span>MAC</span><span>Koskii</span><span>Daniel Wellington</span><span>Marks & Spencer</span><span>Trends</span><span>Samsung Opera House</span>
+  <div class="brand-list">
+    <div class="brand"><img src="images/logos/brand-bobbibrown.png" alt="Bobbi Brown logo" onerror="this.style.display='none'"><span>Bobbi Brown</span></div>
+    <div class="brand"><img src="images/logos/brand-mac.png" alt="MAC logo" onerror="this.style.display='none'"><span>MAC</span></div>
+    <div class="brand"><img src="images/logos/brand-koskii.png" alt="Koskii logo" onerror="this.style.display='none'"><span>Koskii</span></div>
+    <div class="brand"><img src="images/logos/brand-danielwellington.png" alt="Daniel Wellington logo" onerror="this.style.display='none'"><span>Daniel Wellington</span></div>
+    <div class="brand"><img src="images/logos/brand-marks.png" alt="Marks & Spencer logo" onerror="this.style.display='none'"><span>Marks & Spencer</span></div>
+    <div class="brand"><img src="images/logos/brand-trends.png" alt="Trends logo" onerror="this.style.display='none'"><span>Trends</span></div>
+    <div class="brand"><img src="images/logos/brand-samsung.png" alt="Samsung Opera House logo" onerror="this.style.display='none'"><span>Samsung Opera House</span></div>
   </div>
-  <div class="grp">
-    <span>Bobbi Brown</span><span>MAC</span><span>Koskii</span><span>Daniel Wellington</span><span>Marks & Spencer</span><span>Trends</span><span>Samsung Opera House</span>
-  </div>
-</div>
 </section>
 
 <section id="booking">
